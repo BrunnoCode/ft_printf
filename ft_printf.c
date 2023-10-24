@@ -6,7 +6,7 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:49:28 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/23 22:29:15 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:21:36 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,10 @@ int	ft_printf(char const *format, ...)
 	va_end(ptr);
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	ft_printf("mi funcion: %x %d %i \n", -455, 455, -455);
 	printf("Original: %x %d %i \n", -455, 455, -455);
 	return (0);
-}
-/*
-OUTPUT original:
-
-		hola mundo
-		b
-		30
-		42
-		-42
-		0x55742c399050
-		1f4
-		1F4
-		%%
-		*/
+}*/

@@ -6,7 +6,7 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:42:11 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/23 22:26:16 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:06:11 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_my_strchr(char *str, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

@@ -6,29 +6,32 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:44:45 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/23 22:20:40 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:04:05 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_digit(int n, int base)
+int	ft_digit(int nb)
 {
-	// char	*sx;
-	int count;
-
-	// sx = "0123456789abcdef";
-	count = 0;
-	if (n < 0)
+	if (nb == -2147483648)
 	{
-		count += ft_print_char('-');
-		return (ft_digit(-n, base) + 1);
+		return (write(1, "-2147483648", 11));
 	}
-	/*else if (n < base)
+	if (nb < 0)
 	{
-		return (ft_print_char(sx[n]));
-	}*/
-	else
-		count += ft_digit(n / base, base);
-	return (count + ft_digit(n % base, base));
+		ft_print_char('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_digit(nb / 10);
+	ft_print_char(nb % 10 + '0');
+	return (nb);
 }
+/*
+int	main(void)
+{
+	printf("resultado: %d\n",	(int)ft_digit(-4566));
+	printf("%d \n", 0x2A);
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:27:36 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/23 23:58:27 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/24 12:29:51 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,14 @@ int	ft_puthex(long int n, char x, int base)
 	if (n < base)
 	{
 		if (x == 'x')
-		{
 			count += ft_print_char(sx[n]);
-		}
-		else if(x == 'X')
-		{
+		else if (x == 'X')
 			count += ft_print_char(bx[n]);
-		}
-        return (-1);
+		return (-1);
 	}
 	else
-	{
 		count += ft_puthex(n / base, x, base);
-		count += ft_puthex(n % base, x, base);
-	}
+	count += ft_puthex(n % base, x, base);
 	return (count);
 }
 /*
