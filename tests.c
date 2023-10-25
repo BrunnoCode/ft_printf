@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   tests.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 22:25:15 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/24 17:02:17 by bbotelho         ###   ########.fr       */
+/*   Created: 2023/10/25 12:30:35 by bbotelho          #+#    #+#             */
+/*   Updated: 2023/10/25 15:46:54 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
+#include "ft_printf.h"
 
-# define LIBFTPRINTF_H
+int	main(void)
+{
+	// ft_printf("mi funcion: %%\n");
+	// ft_printf("mi funcion: %x %d %i \n", -455, 455, -455);
+	printf("%ld", ft_power(2, 3));
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-int		ft_printf(char const *format, ...);
-int		ft_process(char const *format, int i, va_list ptr);
-char	*ft_my_strchr(char *str, int c);
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-int		ft_digit(int n);
-int		ft_puthex(long int n, char x, int base);
-
-#endif
+	return (0);
+}

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 23:43:51 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/24 12:23:41 by bbotelho         ###   ########.fr       */
+/*   Created: 2023/10/25 08:46:32 by bbotelho          #+#    #+#             */
+/*   Updated: 2023/10/25 12:28:46 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_print_str(char *str)
+int	ft_pointer(unsigned long n, int base, int *error)
 {
-	int	i;
+	int	r;
 
-	i = 0;
-	if (!str)
-		return (ft_print_str("(null)"));
-	while (*str)
-	{
-		ft_print_char((int)*str);
-		++i;
-		++str;
-	}
-	return (i);
+	r = 0;
+	r += ft_print_str("0x", error) + ft_puthex(n, 0, base, error);
+	return (r);
 }

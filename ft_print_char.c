@@ -6,13 +6,10 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:43:03 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/24 12:26:51 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:19:55 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_print_char(int c)
-{
-	return (write(1, &c, 1));
-}
+

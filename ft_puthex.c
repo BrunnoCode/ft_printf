@@ -6,13 +6,13 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:27:36 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/24 12:29:51 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:27:12 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_puthex(long int n, char x, int base)
+int	ft_puthex(long int n, char x, int base, int *error)
 {
 	char	*sx;
 	char	*bx;
@@ -29,14 +29,14 @@ int	ft_puthex(long int n, char x, int base)
 	if (n < base)
 	{
 		if (x == 'x')
-			count += ft_print_char(sx[n]);
+			count += ft_print_char(sx[n], error);
 		else if (x == 'X')
-			count += ft_print_char(bx[n]);
+			count += ft_print_char(bx[n], error);
 		return (-1);
 	}
 	else
-		count += ft_puthex(n / base, x, base);
-	count += ft_puthex(n % base, x, base);
+		count += ft_puthex(n / base, x, base, error);
+	count += ft_puthex(n % base, x, base, error);
 	return (count);
 }
 /*
