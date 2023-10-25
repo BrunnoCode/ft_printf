@@ -6,7 +6,7 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 08:10:00 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/25 15:46:06 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:42:11 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_printf(char const *format, ...);
-int	ft_process(char format, va_list ptr);
-long ft_power(int base, int exponente);
+int	ft_printf(char const *format, ...);
 
 #endif

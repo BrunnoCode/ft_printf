@@ -1,0 +1,7 @@
+Todas anotacoes necessarias: 
+
+1 - criar funcao que util para decimal, int, hexadecimal.
+2 - criar funcao que printe ponteiro em hexadecimal.
+
+
+
