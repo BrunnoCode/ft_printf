@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   esbozo.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: bbotelho <bbotelho@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 20:20:14 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/26 11:07:11 by bbotelho         ###   ########.fr       */
+/*   Created: 2023/10/26 13:41:28 by bbotelho          #+#    #+#             */
+/*   Updated: 2023/10/26 14:00:13 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,40 @@
 
 void	ft_putchr(int c, int *datap)
 {
-	if(*datap != -1)
+	if (*datap != -1)
 	{
-		if(write(1, &c, 1) == -1)
+		if (write(1, &c, 1) == -1)
 			*datap = -1;
 		else
-			*datap += 1;	
+			*datap += 1;
 	}
 }
+
 void	ft_str(char *str, int *datap)
 {
 	if (!str)
 		ft_str("(null)", datap);
 	else
+	{
 		while (*str)
 		{
 			ft_putchr(*str, datap);
 			str++;
 		}
+	}
 }
 
-void	ft_number(unsigned long n, int *datap,unsigned long base, char *basestr)
+void	ft_number(unsigned long n, int *datap, unsigned long base,
+		char *basestr)
 {
-	if((int)n < 0 && basestr[10] == '\0')
+	if ((int)n < 0 && basestr[10] == '\0')
 	{
 		ft_putchr('-', datap);
 		n = -n;
-	}	
-	if(n >= base)
-		ft_number(n  / base, datap, base, basestr);
-	if(*datap == -1)
+	}
+	if (n >= base)
+		ft_number(n / base, datap, base, basestr);
+	if (*datap == -1)
 		return ;
 	ft_putchr(basestr[n % base], datap);
 }
@@ -51,9 +55,9 @@ void	ft_number(unsigned long n, int *datap,unsigned long base, char *basestr)
 void	ft_formats(const char *formato, va_list ap, int *datap)
 {
 	if (*formato == '%')
-		ft_putchr('%', datap);		
+		ft_putchr('%', datap);
 	else if (*formato == 'c')
-		ft_putchr(va_arg(ap, int), datap);		
+		ft_putchr(va_arg(ap, int), datap);
 	else if (*formato == 's')
 		return (ft_str(va_arg(ap, char *), datap));
 	else if (*formato == 'd' || *formato == 'i')
@@ -70,6 +74,7 @@ void	ft_formats(const char *formato, va_list ap, int *datap)
 		ft_number(va_arg(ap, unsigned long), datap, 16, "0123456789abcdef");
 	}
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
