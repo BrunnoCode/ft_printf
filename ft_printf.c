@@ -6,7 +6,7 @@
 /*   By: bbotelho <bbotelho@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:20:14 by bbotelho          #+#    #+#             */
-/*   Updated: 2023/10/26 11:00:10 by bbotelho         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:07:11 by bbotelho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ft_str(char *str, int *datap)
 		}
 }
 
-void	ft_number(unsigned long n, int *datap, unsigned long base, char *basestr)
+void	ft_number(unsigned long n, int *datap,unsigned long base, char *basestr)
 {
-	if(n < 0)
+	if((int)n < 0 && basestr[10] == '\0')
 	{
 		ft_putchr('-', datap);
 		n = -n;
@@ -59,7 +59,7 @@ void	ft_formats(const char *formato, va_list ap, int *datap)
 	else if (*formato == 'd' || *formato == 'i')
 		ft_number(va_arg(ap, int), datap, 10, "0123456789");
 	else if (*formato == 'u')
-		ft_number(va_arg(ap, unsigned int), datap, 10, "0123456789");
+		ft_number(va_arg(ap, unsigned int), datap, 10, "0123456789u");
 	else if (*formato == 'x')
 		ft_number(va_arg(ap, unsigned int), datap, 16, "0123456789abcdef");
 	else if (*formato == 'X')
